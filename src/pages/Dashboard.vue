@@ -7,8 +7,8 @@
           <template slot="header">
             <div class="row">
               <div class="col-sm-6" :class="isRTL ? 'text-right' : 'text-left'">
-                <h5 class="card-category">{{$t('dashboard.totalShipments')}}</h5>
-                <h2 class="card-title">{{$t('dashboard.performance')}}</h2>
+                <h5 class="card-category">Temperatura</h5>
+                <h2 class="card-title">36º C</h2>
               </div>
               <div class="col-sm-6">
                 <div class="btn-group btn-group-toggle"
@@ -46,7 +46,7 @@
       <div class="col-lg-4" :class="{'text-right': isRTL}">
         <card type="chart">
           <template slot="header">
-            <h5 class="card-category">{{$t('dashboard.totalShipments')}}</h5>
+            <h5 class="card-category">Lluvia</h5>
             <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary "></i> 763,215</h3>
           </template>
           <div class="chart-area">
@@ -63,7 +63,7 @@
       <div class="col-lg-4" :class="{'text-right': isRTL}">
         <card type="chart">
           <template slot="header">
-            <h5 class="card-category">{{$t('dashboard.dailySales')}}</h5>
+            <h5 class="card-category">Luz</h5>
             <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info "></i> 3,500€</h3>
           </template>
           <div class="chart-area">
@@ -79,7 +79,7 @@
       <div class="col-lg-4" :class="{'text-right': isRTL}">
         <card type="chart">
           <template slot="header">
-            <h5 class="card-category">{{$t('dashboard.completedTasks')}}</h5>
+            <h5 class="card-category">Viento</h5>
             <h3 class="card-title"><i class="tim-icons icon-send text-success "></i> 12,100K</h3>
           </template>
           <div class="chart-area">
@@ -88,6 +88,48 @@
                         :chart-data="greenLineChart.chartData"
                         :gradient-stops="greenLineChart.gradientStops"
                         :extra-options="greenLineChart.extraOptions">
+            </line-chart>
+          </div>
+        </card>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <card type="chart">
+          <template slot="header">
+            <div class="row">
+              <div class="col-sm-6" :class="isRTL ? 'text-right' : 'text-left'">
+                <!--<h5 class="card-category">{{$t('dashboard.totalShipments')}}</h5>-->
+                <h5 class="card-category">Humedad relativa</h5>
+                <h2 class="card-title">27º C</h2>
+              </div>
+              <div class="col-sm-6">
+                <div class="btn-group btn-group-toggle"
+                     :class="isRTL ? 'float-left' : 'float-right'"
+                     data-toggle="buttons">
+                  <label v-for="(option, index) in bigLineChartCategories"
+                         :key="option"
+                         class="btn btn-sm btn-primary btn-simple"
+                         :class="{active: bigLineChart.activeIndex === index}"
+                         :id="index">
+                    <input type="radio"
+                           @click="initBigChart(index)"
+                           name="options" autocomplete="off"
+                           :checked="bigLineChart.activeIndex === index">
+                    {{option}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </template>
+          <div class="chart-area">
+            <line-chart style="height: 100%"
+                        ref="bigChart"
+                        chart-id="big-line-chart"
+                        :chart-data="bigLineChart.chartData"
+                        :gradient-colors="bigLineChart.gradientColors"
+                        :gradient-stops="bigLineChart.gradientStops"
+                        :extra-options="bigLineChart.extraOptions">
             </line-chart>
           </div>
         </card>
@@ -234,7 +276,7 @@
         return this.$rtl.isRTL;
       },
       bigLineChartCategories() {
-        return this.$t('dashboard.chartCategories');
+        return ['Celcius', 'Fahrenheit', 'Kelvin'];
       }
     },
     methods: {
