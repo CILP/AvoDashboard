@@ -18,62 +18,41 @@
       "somethingElse": "Something else"
     },
     "usersTable": {
-      "title": "Simple Table",
+      "title": "Nutrientes",
       "columns": [
-        "Name",
-        "Country",
-        "City",
-        "Salary"
+        "Nombre",
+        "Tipo",
+        "Porcentaje",
+        "Detalles"
       ],
       "data": [
         {
           "id": 1,
-          "name": "Dakota Rice",
-          "salary": "$36.738",
-          "country": "Niger",
-          "city": "Oud-Turnhout"
+          "nombre": "Nitrogeno",
+          "tipo": "Macro",
+          "porcentaje": "15%",
+          "detalles": "Necesario"
         },
         {
           "id": 2,
-          "name": "Minerva Hooper",
-          "salary": "$23,789",
-          "country": "Curaçao",
-          "city": "Sinaai-Waas"
+          "nombre": "Fosforo",
+          "tipo": "Macro",
+          "porcentaje": "7%",
+          "detalles": "Necesario"
         },
         {
           "id": 3,
-          "name": "Sage Rodriguez",
-          "salary": "$56,142",
-          "country": "Netherlands",
-          "city": "Baileux"
+          "nombre": "Potasio",
+          "tipo": "Macro",
+          "porcentaje": "23%",
+          "detalles": "Necesario"
         },
         {
           "id": 4,
-          "name": "Philip Chaney",
-          "salary": "$38,735",
-          "country": "Korea, South",
-          "city": "Overland Park"
-        },
-        {
-          "id": 5,
-          "name": "Doris Greene",
-          "salary": "$63,542",
-          "country": "Malawi",
-          "city": "Feldkirchen in Kärnten"
-        },
-        {
-          "id": 6,
-          "name": "Mason Porter",
-          "salary": "$98,615",
-          "country": "Chile",
-          "city": "Gloucester"
-        },
-        {
-          "id": 7,
-          "name": "Jon Porter",
-          "salary": "$78,615",
-          "country": "Portugal",
-          "city": "Gloucester"
+          "nombre": "Zinc",
+          "tipo": "Micro",
+          "porcentaje": "2%",
+          "detalles": "Opcional"
         }
       ]
     },
